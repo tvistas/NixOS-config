@@ -11,6 +11,7 @@
     fzf
     ripgrep
     gh
+    sshfs
   ];
 
   imports = [

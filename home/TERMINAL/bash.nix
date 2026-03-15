@@ -9,7 +9,7 @@
   programs.bash = {
     enable = true;
     shellAliases = {
-      nrs = "sudo nixos-rebuild switch --flake /home/tvistas/nixos-config/";
+      nrs = "sudo nixos-rebuild switch --flake /home/tvistas/.nixos-config/";
       z = "zellij";
     };
     sessionVariables = {
