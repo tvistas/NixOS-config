@@ -14,14 +14,19 @@
     plugins = with pkgs.yaziPlugins; {
       bookmarks = bookmarks;
       relative-motions = relative-motions;
-      sshfs = ./sshfs.yazi;
+      sshfs = pkgs.fetchFromGitHub {
+        owner = "uhs-robert";
+        repo = "sshfs.yazi";
+        rev = "main";
+        sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+      };
     };
 
     initLua = ''
       require("relative-motions"):setup({ show_numbers = "relative_absolute",  show_motion = true, enter_mode ="first" })
 
       require("sshfs"):setup({
-        mount_dir = os.getenv("HOME") .. "Mount/"
+        mount_dir = os.getenv("HOME") .. "/Mount/"
       })
 
       require("bookmarks"):setup({
