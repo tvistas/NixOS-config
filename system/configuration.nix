@@ -63,10 +63,13 @@
       "wheel"
     ];
     packages = with pkgs; [ ];
+    shell = pkgs.zsh;
   };
 
+  programs.zsh.enable = true;
   environment.systemPackages = with pkgs; [
   ];
+  environment.pathsToLink = [ "/share/zsh" ];
 
   nix.settings.experimental-features = [
     "nix-command"

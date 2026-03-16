@@ -1,18 +1,24 @@
 {
-  environment.pathsToLink = [ "/share/zsh" ];
   programs.zsh = {
     enable = true;
     autocd = true;
+    enableCompletion = true;
     autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
 
     shellAliases = {
       nrs = "sudo nixos-rebuild switch --flake /home/tvistas/.nixos-config/";
       z = "zellij";
+      lg = "lazygit";
     };
 
     sessionVariables = {
       BROWSER = "zen-beta";
+      EDITOR = "nvim";
+    };
+
+    oh-my-zsh = {
+      enable = true;
+      theme = "murilasso";
     };
 
     initContent = ''
