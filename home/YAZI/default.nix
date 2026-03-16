@@ -9,16 +9,18 @@
   programs.yazi = {
     enable = true;
     enableBashIntegration = true;
+    enableZshIntegration = true;
     shellWrapperName = "y";
 
     plugins = with pkgs.yaziPlugins; {
       bookmarks = bookmarks;
       relative-motions = relative-motions;
+      recycle-bin = recycle-bin;
       sshfs = pkgs.fetchFromGitHub {
         owner = "uhs-robert";
         repo = "sshfs.yazi";
         rev = "main";
-        sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+        sha256 = "sha256-p5ZsqlqsDtFA5f03U7qtBWtAfCzKnckez+g72rv7Stk=";
       };
     };
 
@@ -28,6 +30,8 @@
       require("sshfs"):setup({
         mount_dir = os.getenv("HOME") .. "/Mount/"
       })
+
+      require("recycle-bin"):setup()
 
       require("bookmarks"):setup({
           last_directory = { enable = false, persist = false, mode="dir" },
@@ -57,6 +61,12 @@
             "M"
             "s"
           ];
+        }
+
+        #TRASH-CLI
+        {
+          run = "plugin recycle-bin";
+          on = [ "T" ];
         }
 
         #BOOKMARKS

@@ -20,4 +20,7 @@
   programs.obs-studio = {
     enable = true;
   };
+  programs.element-desktop = {
+    enable = true;
+  };
 }

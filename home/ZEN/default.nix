@@ -79,6 +79,23 @@ in
       "default" = mkProfile {
         id = 0;
         isDefault = true;
+        extraConfig = {
+          spacesForce = true;
+          spaces = {
+            "default" = {
+              name = "Default";
+              id = "6e71129c-dad6-4584-a47f-3ba8944cb687";
+              position = 0;
+              icon = "💻";
+            };
+            "estudo" = {
+              name = "Estudo";
+              id = "3b473252-18b5-4015-adec-e740a78f81d3";
+              position = 1;
+              icon = "📚";
+            };
+          };
+        };
       };
 
       "productivity" = mkProfile {

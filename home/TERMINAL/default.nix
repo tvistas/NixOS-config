@@ -12,12 +12,14 @@
     ripgrep
     gh
     sshfs
+    lazygit
+    trash-cli
   ];
 
   imports = [
     ./git.nix
     ./ghostty.nix
-    ./bash.nix
+    ./zsh.nix
     ./zellij.nix
     ./ssh.nix
   ];
