@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}:
+{ pkgs, ... }:
 
 {
   programs.yazi = {
@@ -16,6 +11,7 @@
       bookmarks = bookmarks;
       relative-motions = relative-motions;
       recycle-bin = recycle-bin;
+      wl-clipboard = wl-clipboard;
       sshfs = pkgs.fetchFromGitHub {
         owner = "uhs-robert";
         repo = "sshfs.yazi";
@@ -54,6 +50,12 @@
 
     keymap = {
       mgr.prepend_keymap = [
+        #YANK
+        {
+          run = [ "plugin wl-clipboard" ];
+          on = "<C-y>";
+        }
+
         #SSHFS
         {
           run = "plugin sshfs -- menu";

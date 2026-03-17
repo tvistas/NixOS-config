@@ -1,12 +1,12 @@
-{ config, pkgs, lib, ...}:
+{ pkgs, ... }:
 
 {
-	home.pointerCursor = {
-		gtk.enable = true;
-		x11.enable = true;
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
 
-		name = "Quintom_Ink";
-		package = pkgs.quintom-cursor-theme;
-		size = 36;
-	};
+    name = "Quintom_Ink";
+    package = pkgs.quintom-cursor-theme;
+    size = 36;
+  };
 }

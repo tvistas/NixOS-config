@@ -1,14 +1,10 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}:
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs; [
     sioyek
     slack
+    prismlauncher
   ];
 
   programs.onlyoffice = {
