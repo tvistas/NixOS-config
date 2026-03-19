@@ -5,7 +5,7 @@
     enable = true;
     theme = {
       package = pkgs.colloid-gtk-theme;
-      name = "Colloid";
+      name = "Colloid-Light";
     };
 
     iconTheme = {

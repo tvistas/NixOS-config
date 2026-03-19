@@ -44,21 +44,27 @@
       home-manager,
       ...
     }@inputs:
+    let
+      mkSystem =
+        deviceName:
+        nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./devices/${deviceName}
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = { inherit inputs; };
+                users.tvistas = import ./home;
+              };
+            }
+          ];
+        };
+    in
     {
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./system/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = { inherit inputs; };
-              users.tvistas = import ./home;
-            };
-          }
-        ];
-      };
+      nixosConfigurations.laptop = mkSystem "laptop";
+      nixosConfigurations.desktop = mkSystem "desktop";
     };
 }

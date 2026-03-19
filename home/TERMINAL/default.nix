@@ -21,7 +21,7 @@
 
   imports = [
     ./git.nix
-    ./ghostty.nix
+    ./kitty.nix
     ./zsh.nix
     ./zellij.nix
     ./ssh.nix

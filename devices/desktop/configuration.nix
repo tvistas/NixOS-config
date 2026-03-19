@@ -1,16 +1,11 @@
-{
-  config,
-  inputs,
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
-    ./desktop-environment.nix
     ./caches.nix
-    ./display-manager
+    ./../../system/desktop-environment.nix
+    ./../../system/display-manager
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -65,11 +60,11 @@
     packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };
-
   programs.zsh.enable = true;
+  environment.pathsToLink = [ "/share/zsh" ];
+
   environment.systemPackages = with pkgs; [
   ];
-  environment.pathsToLink = [ "/share/zsh" ];
 
   nix.settings.experimental-features = [
     "nix-command"

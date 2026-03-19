@@ -18,7 +18,7 @@
           if new ~= "" and new ~= word then
             local escaped_word = vim.fn.escape(word, [[\/]])
             local escaped_new = vim.fn.escape(new, [[\/]])
-            vim.cmd("%s/\\<" .. escaped_word .. "\\>/" .. escaped_new .. "/g")
+            vim.cmd("%s/\\<" .. escaped_word .. "\\>/" .. escaped_new .. "/gc")
           end
         end
       '';
