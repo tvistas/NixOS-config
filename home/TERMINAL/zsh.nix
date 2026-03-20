@@ -6,7 +6,7 @@
     autosuggestion.enable = true;
 
     shellAliases = {
-      nrs = "sudo nixos-rebuild switch --flake /home/tvistas/.nixos-config/#desktop";
+      nrs = "sudo nixos-rebuild switch --flake /home/tvistas/.nixos-config/#$(hostname)";
       z = "zellij";
       lg = "lazygit";
     };

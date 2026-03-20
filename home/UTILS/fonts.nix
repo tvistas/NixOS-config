@@ -5,7 +5,7 @@
 
   home.packages = with pkgs; [
     inter
-    fira-code
+    nerd-fonts.fira-code
     nerd-fonts.symbols-only
   ];
 

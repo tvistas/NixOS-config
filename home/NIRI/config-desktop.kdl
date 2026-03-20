@@ -71,8 +71,10 @@ window-rule {
 	open-floating true
 }
 window-rule {
-	match app-id="ghostty.floating"
+	match app-id="kitty.floating"
 	open-floating true
+  default-column-width { proportion 0.4;}
+  default-window-height {fixed 800;}
 }
 layer-rule {
   match namespace="^noctalia-overview*"
@@ -98,10 +100,10 @@ prefer-no-csd
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+T  { spawn "ghostty"; }
+    Mod+T  { spawn "kitty"; }
     Mod+B  { spawn "zen-beta"; }
     Mod+Space  { spawn "vicinae" "toggle"; }
-    Mod+C  { spawn-sh "ghostty --class='ghostty.floating' -e clipse"; }
+    Mod+C  { spawn-sh "kitty --class='kitty.floating' -e clipse"; }
 
 
     Mod+O repeat=false { toggle-overview; }

@@ -48,9 +48,9 @@
       mkSystem =
         deviceName:
         nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs deviceName; };
           modules = [
-            ./devices/${deviceName}
+            ./devices/${deviceName}/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager = {

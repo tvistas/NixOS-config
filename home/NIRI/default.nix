@@ -1,3 +1,5 @@
+{ deviceName, ... }:
+
 {
-  programs.niri.config = builtins.readFile ./config.kdl;
+  programs.niri.config = builtins.readFile ./config-${deviceName}.kdl;
 }
