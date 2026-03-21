@@ -6,6 +6,7 @@
     ./caches.nix
     ./../../system/desktop-environment.nix
     ./../../system/display-manager
+    ./../../system/steam.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -29,6 +30,8 @@
     pulse.enable = true;
     jack.enable = true;
   };
+
+  hardware.graphics.enable = true;
 
   time.timeZone = "Europe/Lisbon";
   i18n.defaultLocale = "en_US.UTF-8";

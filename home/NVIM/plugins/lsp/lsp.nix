@@ -1,5 +1,3 @@
-{ lib, ... }:
-
 {
   plugins = {
     lsp-lines = {

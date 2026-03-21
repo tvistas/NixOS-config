@@ -1,3 +1,5 @@
+{ deviceName, ... }:
+
 {
   programs.zsh = {
     enable = true;
@@ -6,7 +8,7 @@
     autosuggestion.enable = true;
 
     shellAliases = {
-      nrs = "sudo nixos-rebuild switch --flake /home/tvistas/.nixos-config/#$(hostname)";
+      nrs = "sudo nixos-rebuild switch --flake /home/tvistas/.nixos-config/#${deviceName}";
       z = "zellij";
       lg = "lazygit";
     };
