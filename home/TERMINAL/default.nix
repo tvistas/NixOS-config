@@ -23,7 +23,6 @@
     ./git.nix
     ./kitty.nix
     ./zsh.nix
-    ./zellij.nix
     ./ssh.nix
   ];
 }
