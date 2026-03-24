@@ -6,6 +6,8 @@
       show_startup_tips = false;
     };
 
-    themes.vague = builtins.readFile ./theme.nix;
+    themes.vague = import ./theme.nix;
+
+    xdg.configFile."zellij/layouts/pic.kdl" = ./pic.kdl;
   };
 }

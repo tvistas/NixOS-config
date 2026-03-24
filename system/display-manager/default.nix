@@ -40,8 +40,9 @@ in
       qtdeclarative
       qtsvg
     ];
-    settings.Theme.CursorTheme = "Quintom_Ink";
   };
 
-  environment.systemPackages = [ sddm-personal ];
+  environment.systemPackages = [
+    sddm-personal
+  ];
 }

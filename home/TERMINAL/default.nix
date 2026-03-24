@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     fastfetch
     fzf
+    htop
     ripgrep
     gh
     sshfs

@@ -23,22 +23,22 @@
     };
 
     initContent = ''
-        ncg() {
-          if [[ "$1" == "-g" && "$2" =~ ^[0-9]+$ ]]; then
-              echo "Keeping the last $2 generations..."
-              sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations "+$2"
-              sudo nix-collect-garbage
-              
-          elif [[ "$1" == "-g" ]]; then
-              echo "Error: You must provide a valid number."
-              echo "Usage: ncg [-g <number>]"
-              return 1
-              
-          else
-              echo "Deleting all old generations..."
-              sudo nix-collect-garbage -d
-          fi
-        }      		
+      ncg() {
+        if [[ "$1" == "-g" && "$2" =~ ^[0-9]+$ ]]; then
+            echo "Keeping the last $2 generations..."
+            sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations "+$2"
+            sudo nix-collect-garbage
+            
+        elif [[ "$1" == "-g" ]]; then
+            echo "Error: You must provide a valid number."
+            echo "Usage: ncg [-g <number>]"
+            return 1
+            
+        else
+            echo "Deleting all old generations..."
+            sudo nix-collect-garbage -d
+        fi
+      }      		
 
       z() {
           local LAYOUT_DIR="$HOME/.config/zellij/layouts"
@@ -48,20 +48,20 @@
               
               if [[ -f "$LAYOUT_PATH" ]]; then
                   echo "Launching Zellij with layout: $2"
-                  zellij -s "$2" --layout "$2"
+                  zellij --new-session-with-layout "$LAYOUT_PATH"
               else
                   echo "Error: Layout '$2' not found"
                   return 1
               fi
 
-          elif [[ -z "$1" ]]; then
-              zellij
-
-          else
+          elif [[ "$1" == "-h" ]]; then
               echo "Usage:"
               echo "  z              - Open default Zellij"
               echo "  z -l <name>    - Open Zellij with <name>.kdl layout"
-              return 1
+              return 0
+
+          else
+              zellij
           fi
       }
     '';

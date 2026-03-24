@@ -4,6 +4,8 @@
   home.packages = with pkgs; [
     slack
     prismlauncher
+    thunderbird
+    mpv
   ];
 
   programs.onlyoffice = {

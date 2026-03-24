@@ -15,7 +15,6 @@
       cursor_shape = "block";
       cursor_beam_thickness = 1.2;
 
-      window_title_bar_min_windows = 1;
       window_margin_width = 2;
       tab_bar_edge = "top";
     };

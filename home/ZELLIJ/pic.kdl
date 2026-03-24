@@ -1,0 +1,35 @@
+layout {
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        children
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+
+    tab name="Files" focus=true {
+        pane split_direction="vertical" {
+            pane name="Mount Files" command="yazi" cwd="~/Mount/"
+            pane name="Home Files" command="yazi" cwd="~"
+        }
+    }
+
+    tab name="MareNostrum" {
+        pane name="MareNostrum" command="ssh" {
+            args "ist187112@glogin1.bsc.es"
+        }
+    }
+
+    tab name="Rigel" {
+        pane stacked=true focus=true {
+            pane name="Rigel Shell" command="ssh" {
+                args "tiagovistas@rigel.ipfn.tecnico.ulisboa.pt" "-t" "source .venv/bin/activate && exec $SHELL"
+            }
+            pane name="MLflow Server" command="ssh" {
+                args "-L" "8088:localhost:8088" "tiagovistas@rigel.ipfn.tecnico.ulisboa.pt" "-t" "source .venv/bin/activate && mlflow server --host 127.0.0.1 --port 8088 --backend-store-uri file:/home/tiagovistas/ml-pic-collision-operators/mlruns/ --default-artifact-root file:/home/tiagovistas/ml-pic-collision-operators/mlruns/"
+            }
+        }
+    }
+}
