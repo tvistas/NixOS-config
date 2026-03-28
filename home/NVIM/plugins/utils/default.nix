@@ -1,11 +1,4 @@
 {
-  config,
-  pkgs,
-  lib,
-  ...
-}:
-
-{
   imports = [
     ./flash.nix
     ./yazi.nix
@@ -14,5 +7,6 @@
     ./autopairs.nix
     ./marks.nix
     ./arrow.nix
+    ./spelunk.nix
   ];
 }

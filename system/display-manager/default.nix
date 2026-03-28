@@ -32,7 +32,11 @@ in
 {
   services.displayManager.sddm = {
     enable = true;
-    wayland.enable = true;
+    wayland = {
+      enable = true;
+      compositor = "kwin";
+    };
+
     theme = "sddm-personal";
     package = pkgs.kdePackages.sddm;
     extraPackages = with pkgs.kdePackages; [
@@ -40,9 +44,15 @@ in
       qtdeclarative
       qtsvg
     ];
+
+    settings.Theme = {
+      CursorTheme = "Quintom_Ink";
+      CursorSize = 36;
+    };
   };
 
   environment.systemPackages = [
     sddm-personal
+    pkgs.quintom-cursor-theme
   ];
 }

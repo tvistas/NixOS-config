@@ -24,11 +24,11 @@ layout {
 
     tab name="Rigel" {
         pane stacked=true focus=true {
+            pane name="MLflow Server" command="ssh" {
+                args "-L" "8080:localhost:8080" "tiagovistas@rigel.ipfn.tecnico.ulisboa.pt" "-t" "source .venv/bin/activate && mlflow server --host 127.0.0.1 --port 8080 --backend-store-uri file:/home/tiagovistas/ml-pic-collision-operators/mlruns/ --default-artifact-root file:/home/tiagovistas/ml-pic-collision-operators/mlruns/"
+            }
             pane name="Rigel Shell" command="ssh" {
                 args "tiagovistas@rigel.ipfn.tecnico.ulisboa.pt" "-t" "source .venv/bin/activate && exec $SHELL"
-            }
-            pane name="MLflow Server" command="ssh" {
-                args "-L" "8088:localhost:8088" "tiagovistas@rigel.ipfn.tecnico.ulisboa.pt" "-t" "source .venv/bin/activate && mlflow server --host 127.0.0.1 --port 8088 --backend-store-uri file:/home/tiagovistas/ml-pic-collision-operators/mlruns/ --default-artifact-root file:/home/tiagovistas/ml-pic-collision-operators/mlruns/"
             }
         }
     }

@@ -41,29 +41,49 @@
       }      		
 
       z() {
-          local LAYOUT_DIR="$HOME/.config/zellij/layouts"
-          
-          if [[ "$1" == "-l" && -n "$2" ]]; then
-              local LAYOUT_PATH="$LAYOUT_DIR/$2.kdl"
-              
-              if [[ -f "$LAYOUT_PATH" ]]; then
-                  echo "Launching Zellij with layout: $2"
-                  zellij --new-session-with-layout "$LAYOUT_PATH"
-              else
-                  echo "Error: Layout '$2' not found"
-                  return 1
-              fi
+        local LAYOUT_DIR="$HOME/.config/zellij/layouts"
+        local layout_file=""
+        local session_name=""
+        local zellij_args=()
 
-          elif [[ "$1" == "-h" ]]; then
-              echo "Usage:"
-              echo "  z              - Open default Zellij"
-              echo "  z -l <name>    - Open Zellij with <name>.kdl layout"
-              return 0
+        while [[ "$#" -gt 0 ]]; do
+            case $1 in
+                -l) layout_file="$2"; shift 2 ;;
+                -n) session_name="$2"; shift 2 ;;
+                -h)
+                    echo "Usage:"
+                    echo "  z                       - Open default Zellij"
+                    echo "  z -l <layout>           - Open Zellij with <layout>.kdl layout"
+                    echo "  z -n <name>             - Open Zellij with session <name>"
+                    echo "  z -n <name> -l <layout> - Open named session with specific layout"
+                    return 0
+                    ;;
+                *)
+                    echo "Error: Unknown flag $1"
+                    return 1
+                    ;;
+            esac
+        done
 
-          else
-              zellij
-          fi
-      }
+        if [[ -n "$session_name" ]]; then
+            zellij_args+=(--session "$session_name")
+            echo "Session name: $session_name"
+        fi
+
+        if [[ -n "$layout_file" ]]; then
+            local LAYOUT_PATH="$LAYOUT_DIR/$layout_file.kdl"
+            
+            if [[ -f "$LAYOUT_PATH" ]]; then
+                zellij_args+=(--layout "$LAYOUT_PATH")
+                echo "Launching Zellij with layout: $layout_file"
+            else
+                echo "Error: Layout '$layout_file' not found at $LAYOUT_PATH"
+                return 1
+            fi
+        fi
+
+        zellij "''${zellij_args[@]}"
+      }    
     '';
   };
 }
