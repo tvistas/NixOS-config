@@ -6,6 +6,5 @@
     acceleration = "rocm";
   };
 
-  nixpkgs.overlays = [ inputs.claude-code.overlays.default ];
-  home.packages = [ pkgs.claude-code ];
+  home.packages = [ inputs.claude-code.packages.${pkgs.system}.default ];
 }
