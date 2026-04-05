@@ -6,7 +6,6 @@
     ./treesitter.nix
     ./autopairs.nix
     ./marks.nix
-    ./arrow.nix
     ./spelunk.nix
   ];
 }

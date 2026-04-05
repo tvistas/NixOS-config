@@ -1,0 +1,21 @@
+layout {
+    gaps 10
+    preset-column-widths {
+    }
+    default-column-width { proportion 0.5; }
+    focus-ring {
+        width 1
+        active-color "#4E4E4F"
+        inactive-color "#505050"
+    }
+    border {
+        off
+    }
+    shadow {
+	on
+        softness 30
+        spread 5
+        offset x=0 y=5
+        color "#0007"
+    }
+}

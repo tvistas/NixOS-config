@@ -20,7 +20,18 @@
   ];
   extraConfigLua = ''
     require('spelunk').setup({
-      enable_persist = true
+      enable_persist = true,
+      base_mappings = {
+        toggle = '\\\\',
+        add = '\\a',
+        delete = '\\d',
+        next_bookmark = '\\n',
+        prev_bookmark = '\\p',
+        search_bookmarks = '\\f',
+        search_current_bookmarks = '\\c',
+        search_stacks = '\\s',
+        change_line = "\\l",
+      }
     })
   '';
 }

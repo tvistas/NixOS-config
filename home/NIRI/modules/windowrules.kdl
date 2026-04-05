@@ -1,0 +1,31 @@
+window-rule {
+    clip-to-geometry true
+    geometry-corner-radius 12
+    draw-border-with-background false
+    opacity 0.93
+    open-maximized true
+    background-effect {
+	    blur true
+	    noise 0.05
+	    saturation 3
+    }
+}
+window-rule {
+    match is-focused=false
+    opacity 0.84
+}
+window-rule {
+	match app-id="org.quickshell"
+	match title="Settings"
+	open-floating true
+}
+window-rule {
+	match app-id="kitty.floating"
+	open-floating true
+  default-column-width { proportion 0.4;}
+  default-window-height {fixed 800;}
+}
+layer-rule {
+  match namespace="^noctalia-overview*"
+  place-within-backdrop true
+}
