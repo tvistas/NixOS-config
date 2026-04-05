@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ./caches.nix
     ./../../system/desktop-environment.nix
+    ./../../system/caches.nix
     ./../../system/display-manager
     #./../../system/programs.nix
   ];
