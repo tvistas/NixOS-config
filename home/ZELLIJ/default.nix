@@ -9,6 +9,8 @@
     settings = {
       theme = "vague";
       show_startup_tips = false;
+      pane_frames = false;
+      hide_session_name = true;
       keybinds = import ./binds.nix;
     };
 

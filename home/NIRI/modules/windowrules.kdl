@@ -25,6 +25,12 @@ window-rule {
   default-column-width { proportion 0.4;}
   default-window-height {fixed 800;}
 }
+window-rule {
+    match title="^Write:"
+    open-floating true
+    default-column-width { proportion 0.6;}
+    default-window-height {fixed 900;}
+}
 layer-rule {
   match namespace="^noctalia-overview*"
   place-within-backdrop true

@@ -11,7 +11,7 @@
   programs.onlyoffice = {
     enable = true;
   };
-  programs.discord = {
+  programs.vesktop = {
     enable = true;
   };
   programs.obs-studio = {
@@ -19,5 +19,12 @@
   };
   programs.element-desktop = {
     enable = true;
+  };
+
+  xdg.desktopEntries = {
+    vesktop = {
+      name = "Discord";
+      icon = "/etc/profiles/per-user/tvistas/share/icons/Colloid-Light/apps/scalable/discord.svg";
+    };
   };
 }

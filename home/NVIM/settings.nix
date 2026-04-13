@@ -1,8 +1,6 @@
-{ lib, ... }:
-
 {
   globals = {
-    mapleader = " ";
+    rapleader = " ";
     maplocalleader = "//";
   };
 
@@ -16,6 +14,11 @@
     signcolumn = "yes";
     updatetime = 500;
     termguicolors = true;
+    foldmethod = "expr";
+    foldexpr = "nvim_treesitter#foldexpr()";
+    foldenable = true;
+    foldlevel = 99;
+    foldcolumn = "1";
   };
 
   clipboard.register = "unnamedplus";

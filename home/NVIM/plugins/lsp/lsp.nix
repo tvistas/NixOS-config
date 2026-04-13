@@ -13,11 +13,12 @@
       servers = {
         html.enable = true;
         lua_ls.enable = true;
-        nil_ls.enable = true;
+        nixd.enable = true;
         ts_ls.enable = true;
         marksman.enable = true;
         pyright.enable = true;
         clangd.enable = true;
+        fortls.enable = true;
       };
 
       keymaps = {
@@ -61,11 +62,11 @@
             action = "open_float";
             desc = "Line Diagnostics";
           };
-          "[d" = {
+          "]d" = {
             action = "goto_next";
             desc = "Next Diagnostic";
           };
-          "]d" = {
+          "[d" = {
             action = "goto_prev";
             desc = "Previous Diagnostic";
           };
@@ -105,7 +106,7 @@
           border = "rounded",
           source = "always",
           prefix = "",
-          scope = "cursor",
+          scope = "line",
         })
       end
     })
