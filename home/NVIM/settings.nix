@@ -1,6 +1,6 @@
 {
   globals = {
-    rapleader = " ";
+    mapleader = " ";
     maplocalleader = "//";
   };
 
@@ -18,7 +18,7 @@
     foldexpr = "nvim_treesitter#foldexpr()";
     foldenable = true;
     foldlevel = 99;
-    foldcolumn = "1";
+    foldcolumn = "0";
   };
 
   clipboard.register = "unnamedplus";

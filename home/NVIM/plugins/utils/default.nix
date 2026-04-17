@@ -3,7 +3,7 @@
     ./flash.nix
     ./yazi.nix
     ./telescope.nix
-    #    ./treesitter.nix
+    ./treesitter.nix
     ./autopairs.nix
     ./marks.nix
     ./spelunk.nix

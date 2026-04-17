@@ -5,93 +5,177 @@
       highlight.enable = true;
       indent.enable = true;
       folding.enable = true;
-
       nixvimInjections = true;
 
-      settings = {
-        auto_install = true;
-
-        ensure_installed = [
-          "bash"
-          "c"
-          "cpp"
-          "fortran"
-          "css"
-          "html"
-          "javascript"
-          "json"
-          "lua"
-          "markdown"
-          "markdown_inline"
-          "python"
-          "regex"
-          "rust"
-          "toml"
-          "tsx"
-          "typescript"
-          "vimdoc"
-          "yaml"
-          "nix"
-          "vim"
-        ];
-      };
     };
 
     ts-autotag.enable = true;
+    treesitter-textobjects.enable = true;
 
     treesitter-context = {
       enable = true;
       settings.max_lines = 3;
     };
-
-    treesitter-textobjects = {
-      enable = true;
-      settings = {
-        select = {
-          enable = true;
-          lookahead = true;
-          keymaps = {
-            "af" = "@function.outer";
-            "if" = "@function.inner";
-            "ac" = "@class.outer";
-            "ic" = "@class.inner";
-            "aa" = "@parameter.outer";
-            "ia" = "@parameter.inner";
-          };
-        };
-        swap = {
-          enable = true;
-          swap_next = {
-            "<leader>a" = "@parameter.inner";
-          };
-          swap_previous = {
-            "<leader>A" = "@parameter.inner";
-          };
-        };
-        move = {
-          enable = true;
-          goto_next_start = {
-            "]f" = "@function.outer";
-            "]c" = "@class.outer";
-            "]a" = "@parameter.inner";
-          };
-          goto_previous_start = {
-            "[f" = "@function.outer";
-            "[c" = "@class.outer";
-            "[a" = "@parameter.inner";
-          };
-        };
-      };
-    };
-
-    treesitter-refactor = {
-      enable = true;
-      settings = {
-        smart_rename = {
-          enable = true;
-          keymaps.smart_rename = "grr";
-        };
-      };
-    };
   };
+
+  keymaps = [
+    {
+      mode = [
+        "x"
+        "o"
+      ];
+      key = "af";
+      action = "<cmd>lua require('nvim-treesitter-textobjects.select').select_textobject('@function.outer')<cr>";
+      options.desc = "Select outer function";
+    }
+    {
+      mode = [
+        "x"
+        "o"
+      ];
+      key = "if";
+      action = "<cmd>lua require('nvim-treesitter-textobjects.select').select_textobject('@function.inner')<cr>";
+      options.desc = "Select inner function";
+    }
+    {
+      mode = [
+        "x"
+        "o"
+      ];
+      key = "ac";
+      action = "<cmd>lua require('nvim-treesitter-textobjects.select').select_textobject('@class.outer')<cr>";
+      options.desc = "Select outer class";
+    }
+    {
+      mode = [
+        "x"
+        "o"
+      ];
+      key = "ic";
+      action = "<cmd>lua require('nvim-treesitter-textobjects.select').select_textobject('@class.inner')<cr>";
+      options.desc = "Select inner class";
+    }
+    {
+      mode = [
+        "x"
+        "o"
+      ];
+      key = "aa";
+      action = "<cmd>lua require('nvim-treesitter-textobjects.select').select_textobject('@parameter.outer')<cr>";
+      options.desc = "Select outer parameter";
+    }
+    {
+      mode = [
+        "x"
+        "o"
+      ];
+      key = "ia";
+      action = "<cmd>lua require('nvim-treesitter-textobjects.select').select_textobject('@parameter.inner')<cr>";
+      options.desc = "Select inner parameter";
+    }
+    {
+      mode = [
+        "x"
+        "o"
+      ];
+      key = "ab";
+      action = "<cmd>lua require('nvim-treesitter-textobjects.select').select_textobject('@block.outer')<cr>";
+      options.desc = "Select outer block";
+    }
+    {
+      mode = [
+        "x"
+        "o"
+      ];
+      key = "ib";
+      action = "<cmd>lua require('nvim-treesitter-textobjects.select').select_textobject('@block.inner')<cr>";
+      options.desc = "Select inner block";
+    }
+    {
+      mode = [
+        "x"
+        "o"
+      ];
+      key = "ai";
+      action = "<cmd>lua require('nvim-treesitter-textobjects.select').select_textobject('@conditional.outer')<cr>";
+      options.desc = "Select outer conditional";
+    }
+    {
+      mode = [
+        "x"
+        "o"
+      ];
+      key = "ii";
+      action = "<cmd>lua require('nvim-treesitter-textobjects.select').select_textobject('@conditional.inner')<cr>";
+      options.desc = "Select inner conditional";
+    }
+    {
+      mode = [
+        "x"
+        "o"
+      ];
+      key = "al";
+      action = "<cmd>lua require('nvim-treesitter-textobjects.select').select_textobject('@loop.outer')<cr>";
+      options.desc = "Select outer loop";
+    }
+    {
+      mode = [
+        "x"
+        "o"
+      ];
+      key = "il";
+      action = "<cmd>lua require('nvim-treesitter-textobjects.select').select_textobject('@loop.inner')<cr>";
+      options.desc = "Select inner loop";
+    }
+
+    {
+      mode = "n";
+      key = "]f";
+      action = "<cmd>lua require('nvim-treesitter-textobjects.move').goto_next_start('@function.outer')<cr>";
+      options.desc = "Next function start";
+    }
+    {
+      mode = "n";
+      key = "]c";
+      action = "<cmd>lua require('nvim-treesitter-textobjects.move').goto_next_start('@class.outer')<cr>";
+      options.desc = "Next class start";
+    }
+    {
+      mode = "n";
+      key = "]a";
+      action = "<cmd>lua require('nvim-treesitter-textobjects.move').goto_next_start('@parameter.inner')<cr>";
+      options.desc = "Next parameter";
+    }
+    {
+      mode = "n";
+      key = "[f";
+      action = "<cmd>lua require('nvim-treesitter-textobjects.move').goto_previous_start('@function.outer')<cr>";
+      options.desc = "Previous function start";
+    }
+    {
+      mode = "n";
+      key = "[c";
+      action = "<cmd>lua require('nvim-treesitter-textobjects.move').goto_previous_start('@class.outer')<cr>";
+      options.desc = "Previous class start";
+    }
+    {
+      mode = "n";
+      key = "[a";
+      action = "<cmd>lua require('nvim-treesitter-textobjects.move').goto_previous_start('@parameter.inner')<cr>";
+      options.desc = "Previous parameter";
+    }
+
+    {
+      mode = "n";
+      key = "<leader>a";
+      action = "<cmd>lua require('nvim-treesitter-textobjects.swap').swap_next('@parameter.inner')<cr>";
+      options.desc = "Swap with next parameter";
+    }
+    {
+      mode = "n";
+      key = "<leader>A";
+      action = "<cmd>lua require('nvim-treesitter-textobjects.swap').swap_previous('@parameter.inner')<cr>";
+      options.desc = "Swap with previous parameter";
+    }
+  ];
 }

@@ -10,6 +10,7 @@
     shellAliases = {
       nrs = "sudo nixos-rebuild switch --flake /home/tvistas/.nixos-config/#${deviceName}";
       lg = "lazygit";
+      update = "sudo nix flake update --flake /home/tvistas/.nixos-config/";
     };
 
     sessionVariables = {

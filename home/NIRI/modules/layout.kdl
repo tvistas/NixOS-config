@@ -1,5 +1,5 @@
 layout {
-    gaps 10
+    gaps 8
     preset-column-widths {
     }
     default-column-width { proportion 0.5; }
@@ -12,10 +12,10 @@ layout {
         off
     }
     shadow {
-	on
-        softness 30
-        spread 5
-        offset x=0 y=5
-        color "#0007"
+      on
+      softness 21
+      spread 6
+      offset x=0 y=0
+      color "#0008"
     }
 }

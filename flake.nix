@@ -21,7 +21,6 @@
 
     niri = {
       url = "github:sodiboo/niri-flake";
-      inputs.niri-unstable.url = "github:niri-wm/niri/wip/branch";
     };
 
     nixvim.url = "github:nix-community/nixvim";

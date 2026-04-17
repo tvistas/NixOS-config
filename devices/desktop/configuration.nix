@@ -30,6 +30,13 @@
     jack.enable = true;
   };
 
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "intl";
+  };
+
+  services.udisks2.enable = true;
+
   hardware.graphics.enable = true;
 
   time.timeZone = "Europe/Lisbon";
@@ -46,10 +53,6 @@
     LC_TIME = "pt_PT.UTF-8";
   };
 
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "intl";
-  };
   console.useXkbConfig = true;
 
   users.users.tvistas = {
