@@ -90,11 +90,11 @@
         local flake_path="/home/tvistas/.nixos-config"
         
         if [[ -z "$1" ]]; then
-          echo "Loading default devShell..."
-          nix develop "$flake_path#default"
+          echo "Error: No shell found"
+          return 1
         else
           echo "Loading '$1' devShell..."
-          nix develop "$flake_path#$1"
+          nix develop "$flake_path#$1" -c zsh
         fi
       }
     '';

@@ -67,7 +67,7 @@
       };
 
       devShells."x86_64-linux" = {
-        website = import ./home/SHELLS/website.nix { inherit pkgs; };
+        website = import ./system/dev-shells/website.nix { inherit pkgs; };
       };
     };
 }
