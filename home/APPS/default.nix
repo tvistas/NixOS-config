@@ -7,7 +7,6 @@
     thunderbird
     mpv
     nautilus
-    zoom-us
   ];
 
   programs.onlyoffice = {

@@ -19,12 +19,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    niri = {
-      url = "github:sodiboo/niri-flake";
-    };
-
+    niri.url = "github:sodiboo/niri-flake";
     nixvim.url = "github:nix-community/nixvim";
-
     vicinae.url = "github:vicinaehq/vicinae";
 
     zen-browser = {
@@ -61,9 +57,17 @@
             }
           ];
         };
+
+      pkgs = nixpkgs.legacyPackages."x86_64-linux";
     in
     {
-      nixosConfigurations.laptop = mkSystem "laptop";
-      nixosConfigurations.desktop = mkSystem "desktop";
+      nixosConfigurations = {
+        laptop = mkSystem "laptop";
+        desktop = mkSystem "desktop";
+      };
+
+      devShells."x86_64-linux" = {
+        website = import ./home/SHELLS/website.nix { inherit pkgs; };
+      };
     };
 }

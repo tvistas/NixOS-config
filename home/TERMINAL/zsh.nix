@@ -85,6 +85,18 @@
 
         zellij "''${zellij_args[@]}"
       }    
+
+      develop() {
+        local flake_path="/home/tvistas/.nixos-config"
+        
+        if [[ -z "$1" ]]; then
+          echo "Loading default devShell..."
+          nix develop "$flake_path#default"
+        else
+          echo "Loading '$1' devShell..."
+          nix develop "$flake_path#$1"
+        fi
+      }
     '';
   };
 }
