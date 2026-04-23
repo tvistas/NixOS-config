@@ -68,6 +68,7 @@
 
       devShells."x86_64-linux" = {
         website = import ./system/dev-shells/website.nix { inherit pkgs; };
+        osiris = import ./system/dev-shells/osiris.nix { inherit pkgs; };
       };
     };
 }
