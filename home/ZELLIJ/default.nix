@@ -7,7 +7,7 @@
     config.lib.file.mkOutOfStoreSymlink "/home/tvistas/.nixos-config/home/ZELLIJ/layouts/website.kdl";
 
   programs.zellij = {
-    enable = true;
+    enable = false;
     settings = {
       theme = "vague";
       show_startup_tips = false;
