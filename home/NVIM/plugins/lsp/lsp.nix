@@ -3,9 +3,6 @@
     lsp-lines = {
       enable = true;
     };
-    lsp-format = {
-      enable = true;
-    };
 
     lsp = {
       enable = true;
@@ -19,7 +16,13 @@
         pyright.enable = true;
         clangd.enable = true;
         fortls.enable = true;
-        tinymist.enable = true;
+        tinymist = {
+          enable = true;
+          settings = {
+            exportPdf = "onType";
+            outputPath = "$dir/$name";
+          };
+        };
       };
 
       keymaps = {
@@ -77,34 +80,33 @@
   };
 
   extraConfigLua = ''
-      local _border = "rounded"
+    local _border = "rounded"
 
-      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-        vim.lsp.handlers.hover, {
-          border = _border
-        }
-      )
+    local orig_hover = vim.lsp.buf.hover
+    vim.lsp.buf.hover = function(config)
+      orig_hover(vim.tbl_deep_extend("force", config or {}, { border = _border }))
+    end
 
-      vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-        vim.lsp.handlers.signature_help, {
-          border = _border
-        }
-      )
+    local orig_signature_help = vim.lsp.buf.signature_help
+    vim.lsp.buf.signature_help = function(config)
+      orig_signature_help(vim.tbl_deep_extend("force", config or {}, { border = _border }))
+    end
 
-      vim.diagnostic.config{
-        float={border=_border}
-      };
+    vim.diagnostic.config({
+      float = { border = _border }
+    })
 
-      require('lspconfig.ui.windows').default_options = {
-        border = _border
-      }
-      vim.o.updatetime = 250
+    require('lspconfig.ui.windows').default_options = {
+      border = _border
+    }
+
+    vim.o.updatetime = 250
 
     vim.api.nvim_create_autocmd("CursorHold", {
       callback = function()
         vim.diagnostic.open_float(nil, {
           focusable = false,
-          border = "rounded",
+          border = _border,
           source = "always",
           prefix = "",
           scope = "line",

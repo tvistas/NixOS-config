@@ -8,7 +8,7 @@
     mpv
     nautilus
     localsend
-    sioyek
+    zathura
   ];
 
   programs.onlyoffice = {
