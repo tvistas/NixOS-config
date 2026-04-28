@@ -18,7 +18,6 @@
       ];
       text = builtins.readFile "${pkgs.nix-search-tv.src}/nixpkgs.sh";
     })
-    zoxide
   ];
 
   imports = [
@@ -26,5 +25,6 @@
     ./kitty.nix
     ./zsh.nix
     ./ssh.nix
+    ./zoxide.nix
   ];
 }
