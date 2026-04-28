@@ -8,12 +8,16 @@
     mpv
     nautilus
     localsend
+    sioyek
   ];
 
   programs.onlyoffice = {
     enable = true;
   };
   programs.vesktop = {
+    enable = true;
+  };
+  programs.discord = {
     enable = true;
   };
   programs.obs-studio = {

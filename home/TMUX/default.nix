@@ -1,28 +1,5 @@
 { pkgs, ... }:
 
-let
-  tmuxModal = pkgs.tmuxPlugins.mkTmuxPlugin {
-    pluginName = "tmux-modal";
-    version = "main";
-    src = pkgs.fetchFromGitHub {
-      owner = "whame";
-      repo = "tmux-modal";
-      rev = "main";
-      hash = pkgs.lib.fakeHash;
-    };
-  };
-
-  vagueTheme = pkgs.tmuxPlugins.mkTmuxPlugin {
-    pluginName = "vague-tmux";
-    version = "main";
-    src = pkgs.fetchFromGitHub {
-      owner = "vague-theme";
-      repo = "vague-tmux";
-      rev = "main";
-      hash = pkgs.lib.fakeHash;
-    };
-  };
-in
 {
   programs.tmux = {
     enable = true;
@@ -45,9 +22,15 @@ in
       tmuxPlugins.sensible
       tmuxPlugins.vim-tmux-navigator
       tmuxPlugins.yank
-
-      tmuxModal
-      vagueTheme
     ];
+
+    extraConfig = ''
+      source-file ~/.config/tmux/vague.conf
+
+      set -g @plugin 'tmux-plugins/tpm'
+      set -g @plugin 'whame/tmux-modal'
+
+      run '~/.tmux/plugins/tpm/tpm'
+    '';
   };
 }

@@ -16,11 +16,7 @@ window-rule {
     }
     popups {
         geometry-corner-radius 15
-        opacity 0.8
-        background-effect {
-            blur true
-            saturation 3
-        }
+        opacity 0.98
     }
 }
 window-rule {

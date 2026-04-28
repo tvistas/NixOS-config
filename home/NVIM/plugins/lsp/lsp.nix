@@ -19,6 +19,7 @@
         pyright.enable = true;
         clangd.enable = true;
         fortls.enable = true;
+        tinymist.enable = true;
       };
 
       keymaps = {
