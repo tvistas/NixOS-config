@@ -10,7 +10,7 @@ window-rule {
     geometry-corner-radius 12
     draw-border-with-background false
     opacity 0.87
-    open-maximized true
+    open-maximized false
     background-effect {
 	    blur true
     }

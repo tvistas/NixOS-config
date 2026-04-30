@@ -16,13 +16,6 @@
         pyright.enable = true;
         clangd.enable = true;
         fortls.enable = true;
-        tinymist = {
-          enable = true;
-          settings = {
-            exportPdf = "onType";
-            outputPath = "$dir/$name";
-          };
-        };
       };
 
       keymaps = {

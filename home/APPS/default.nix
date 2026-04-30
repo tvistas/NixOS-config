@@ -8,7 +8,6 @@
     mpv
     nautilus
     localsend
-    zathura
   ];
 
   programs.onlyoffice = {
@@ -24,6 +23,9 @@
     enable = true;
   };
   programs.element-desktop = {
+    enable = true;
+  };
+  programs.zathura = {
     enable = true;
   };
 }
