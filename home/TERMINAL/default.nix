@@ -2,6 +2,7 @@
 
 {
   home.packages = with pkgs; [
+    python3
     fastfetch
     fzf
     htop

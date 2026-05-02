@@ -7,3 +7,4 @@ include "modules/keyboard/desktop.kdl"
 
 
 spawn-at-startup "noctalia-shell"
+spawn-at-startup "python3" "/home/tvistas/.config/niri/niri_tile_to_n.py" "-n" "2"

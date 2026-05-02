@@ -16,6 +16,18 @@
         pyright.enable = true;
         clangd.enable = true;
         fortls.enable = true;
+        rust_analyzer = {
+          enable = true;
+          installRustc = false;
+          installCargo = false;
+          settings = {
+            "rust_analyzer" = {
+              checkOnSave = {
+                command = "clippy";
+              };
+            };
+          };
+        };
       };
 
       keymaps = {

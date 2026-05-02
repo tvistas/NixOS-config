@@ -113,7 +113,6 @@
             __unkeyed-2 = "prettier";
             stop_after_first = true;
           };
-          typst = [ "typstyle" ];
         };
 
         formatters = {
@@ -135,8 +134,8 @@
           clang-format = {
             command = "${lib.getExe' pkgs.clang-tools "clang-format"}";
           };
-          typstyle = {
-            command = "${lib.getExe pkgs.typstyle}";
+          rustfmt = {
+            command = "${lib.getExe pkgs.rustfmt}";
           };
         };
       };
