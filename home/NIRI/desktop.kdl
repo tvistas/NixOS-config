@@ -5,5 +5,5 @@ include "modules/extras.kdl"
 include "modules/monitors/desktop.kdl"
 include "modules/keyboard/desktop.kdl"
 
-//spawn-at-startup "noctalia-shell"
+spawn-at-startup "noctalia-shell"
 spawn-at-startup "oniri"

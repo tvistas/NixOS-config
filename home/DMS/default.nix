@@ -14,7 +14,7 @@
   };
 
   programs.dank-material-shell = {
-    enable = true;
+    enable = false;
 
     systemd = {
       enable = true;
