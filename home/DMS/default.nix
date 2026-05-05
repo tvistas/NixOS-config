@@ -1,11 +1,15 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
     inputs.dms.homeModules.dank-material-shell
   ];
 
-  environment.sessionVariables = {
+  home.packages = with pkgs; [
+    gpu-screen-recorder
+  ];
+
+  home.sessionVariables = {
     DMS_DISABLE_MATUGEN = 1;
   };
 

@@ -50,3 +50,8 @@ layer-rule {
   match namespace="^noctalia-overview*"
   place-within-backdrop true
 }
+layer-rule {
+    match namespace="dms:blurwallpaper"
+    place-within-backdrop true
+}
+
