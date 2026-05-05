@@ -22,6 +22,6 @@
   ];
 
   programs.noctalia-shell = {
-    enable = true;
+    enable = false;
   };
 }

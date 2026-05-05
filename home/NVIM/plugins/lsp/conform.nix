@@ -103,6 +103,7 @@
           c = [ "clang-format" ];
           cpp = [ "clang-format" ];
           nix = [ "nixfmt" ];
+          rust = [ "rustfmt" ];
           markdown = {
             __unkeyed-1 = "prettierd";
             __unkeyed-2 = "prettier";
