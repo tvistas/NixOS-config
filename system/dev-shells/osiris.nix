@@ -21,6 +21,8 @@ pkgs.mkShell {
 
     python3
     python3Packages.venvShellHook
+
+    gemini-cli
   ];
 
   LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath (
