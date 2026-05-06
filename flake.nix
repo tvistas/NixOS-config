@@ -32,6 +32,8 @@
 
     vicinae.url = "github:vicinaehq/vicinae";
 
+    monique.url = "github:ToRvaLDz/monique";
+
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs = {

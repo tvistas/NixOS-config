@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
 {
+
   home.packages = with pkgs; [
     slack
     prismlauncher
@@ -10,19 +11,9 @@
     localsend
   ];
 
-  programs.onlyoffice = {
-    enable = true;
-  };
-  programs.vesktop = {
-    enable = true;
-  };
-  programs.obs-studio = {
-    enable = true;
-  };
-  programs.element-desktop = {
-    enable = true;
-  };
-  programs.zathura = {
-    enable = true;
-  };
+  programs.onlyoffice.enable = true;
+  programs.vesktop.enable = true;
+  programs.obs-studio.enable = true;
+  programs.element-desktop.enable = true;
+  programs.zathura.enable = true;
 }

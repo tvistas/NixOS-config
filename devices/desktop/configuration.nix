@@ -6,6 +6,7 @@
     ./../../system/desktop-environment.nix
     ./../../system/caches.nix
     ./../../system/display-manager
+    ./../../system/programs.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
