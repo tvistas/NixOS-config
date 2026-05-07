@@ -1,9 +1,0 @@
-include "modules/binds.kdl"
-include "modules/layout.kdl"
-include "modules/windowrules.kdl"
-include "modules/extras.kdl"
-include "modules/monitors/laptop.kdl"
-include "modules/keyboard/laptop.kdl"
-
-
-spawn-at-startup "noctalia-shell"

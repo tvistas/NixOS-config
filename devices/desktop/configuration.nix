@@ -3,10 +3,8 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./../../system/desktop-environment.nix
     ./../../system/caches.nix
-    ./../../system/display-manager
-    ./../../system/programs.nix
+    ./../../system/
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -63,14 +61,8 @@
       "networkmanager"
       "wheel"
     ];
-    packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };
-  programs.zsh.enable = true;
-  environment.pathsToLink = [ "/share/zsh" ];
-
-  environment.systemPackages = with pkgs; [
-  ];
 
   nix.settings.experimental-features = [
     "nix-command"
