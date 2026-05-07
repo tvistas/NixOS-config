@@ -4,7 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ./../../system/caches.nix
-    ./../../system/
+    ./../../system/modules
   ];
 
   boot.loader.systemd-boot.enable = true;
