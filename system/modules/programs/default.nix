@@ -16,7 +16,6 @@
     clipse
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.vicinae.packages.${pkgs.stdenv.hostPlatform.system}.default
-    (import ../../pkgs/hyprmod.nix { inherit inputs pkgs; })
   ];
 
   programs.steam.enable = false;
