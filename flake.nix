@@ -13,18 +13,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
-    uv2nix = {
-      url = "github:pyproject-nix/uv2nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    pyproject-nix = {
-      url = "github:pyproject-nix/pyproject.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprmod = {
-      url = "github:BlueManCZ/hyprmod";
-      flake = false;
-    };
     nixvim.url = "github:nix-community/nixvim";
     vicinae.url = "github:vicinaehq/vicinae";
     zen-browser = {

@@ -1,6 +1,8 @@
 { inputs, pkgs, ... }:
 
 {
+  imports = [ inputs.hyprland.nixosModules.default ];
+
   environment.systemPackages = with pkgs; [
     grim
     slurp
@@ -28,5 +30,9 @@
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     portalPackage =
       inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+
+    plugins = [
+      #      (pkgs.callPackage ./plugins/hyprglass.nix { })
+    ];
   };
 }
