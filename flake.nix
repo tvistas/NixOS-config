@@ -3,24 +3,30 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.noctalia-qs.follows = "noctalia-qs";
     };
-
     noctalia-qs = {
       url = "github:noctalia-dev/noctalia-qs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     hyprland.url = "github:hyprwm/Hyprland";
-
+    uv2nix = {
+      url = "github:pyproject-nix/uv2nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    pyproject-nix = {
+      url = "github:pyproject-nix/pyproject.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprmod = {
+      url = "github:BlueManCZ/hyprmod";
+      flake = false;
+    };
     nixvim.url = "github:nix-community/nixvim";
-
     vicinae.url = "github:vicinaehq/vicinae";
-
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs = {
