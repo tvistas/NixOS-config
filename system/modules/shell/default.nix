@@ -37,9 +37,8 @@
 
   programs.zsh = {
     enable = true;
-    autocd = true;
     enableCompletion = true;
-    autosuggestion.enable = true;
+    enableAutosuggestions = true;
 
     shellAliases = {
       nrs = "sudo nixos-rebuild switch --flake /home/tvistas/.nixos-config/#${deviceName}";
@@ -96,18 +95,6 @@
     enable = true;
 
     plugins = with pkgs; [
-      {
-        plugin = tmuxPlugins.resurrect;
-        extraConfig = "set -g @resurrect-strategy-nvim 'session'";
-      }
-      {
-        plugin = tmuxPlugins.continuum;
-        extraConfig = ''
-          set -g @continuum-restore 'on'
-          set -g @continuum-save-interval '60'
-        '';
-      }
-
       tmuxPlugins.sensible
       tmuxPlugins.vim-tmux-navigator
       tmuxPlugins.yank
